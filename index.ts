@@ -13,3 +13,38 @@ btn.addEventListener("click", function(event){
     let sum = AddUp(first, +second);
     answer.innerText = sum.toString();
 })
+
+enum Roles{ DEVELOPER, TESTER, AI_ENGINEER, DEV_OPS, CYBER_TEAM }
+
+console.log(Roles.AI_ENGINEER);
+console.log(Roles.DEV_OPS);
+console.log(Roles.DEVELOPER);
+
+// BigO(n) Linear Algorithm
+function split(word: String, delimeter: string){
+    let buffer = "";
+    let splitWord = [];
+
+    if (!delimeter || !word.includes(delimeter)) {
+        for(let i = 0; i < word.length; i++){
+            splitWord.push(word[i]);
+        }
+    }else{
+        for(let i = 0; i <= word.length; i++){
+            if(word[i] === delimeter){
+                splitWord.push(buffer);
+                buffer = "";
+            }else{
+                if(i === word.length){
+                    splitWord.push(buffer)
+                }else{
+                    buffer += word[i];
+                }
+            }
+        }
+    }
+
+    return splitWord;
+}
+
+console.log(split("ab.cd.eff", "."))
